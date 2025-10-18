@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Racing Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="ui-overlay">
+        <div id="countdown">3</div>
+        <div id="hud">
+            <div id="speed">Speed: <span id="speed-value">0</span> km/h</div>
+            <div id="lap">Lap: <span id="lap-value">1</span> / 3</div>
+        </div>
+        <div id="race-result"></div>
+    </div>
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "./node_modules/three/build/three.module.js"
+        }
+    }
+    </script>
+    <script type="module" src="game.js"></script>
+</body>
+</html>
