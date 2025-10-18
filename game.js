@@ -20,6 +20,7 @@ let isMobile = false;
 const trackWidth = 40;
 const trackLength = 200;
 const wallHeight = 5;
+const mobileBreakpoint = 768; // Viewport width threshold for mobile detection
 
 // Mobile controls setup
 function setupMobileControls() {
@@ -37,6 +38,10 @@ function setupMobileControls() {
         e.preventDefault();
         keys['arrowup'] = false;
     });
+    btnForward.addEventListener('touchcancel', (e) => {
+        e.preventDefault();
+        keys['arrowup'] = false;
+    });
 
     // Brake button
     btnBrake.addEventListener('touchstart', (e) => {
@@ -44,6 +49,10 @@ function setupMobileControls() {
         keys['arrowdown'] = true;
     });
     btnBrake.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        keys['arrowdown'] = false;
+    });
+    btnBrake.addEventListener('touchcancel', (e) => {
         e.preventDefault();
         keys['arrowdown'] = false;
     });
@@ -57,6 +66,10 @@ function setupMobileControls() {
         e.preventDefault();
         keys['arrowleft'] = false;
     });
+    btnLeft.addEventListener('touchcancel', (e) => {
+        e.preventDefault();
+        keys['arrowleft'] = false;
+    });
 
     // Right button
     btnRight.addEventListener('touchstart', (e) => {
@@ -67,24 +80,17 @@ function setupMobileControls() {
         e.preventDefault();
         keys['arrowright'] = false;
     });
-
-    // Also handle touchcancel to prevent stuck keys
-    [btnForward, btnBrake, btnLeft, btnRight].forEach(btn => {
-        btn.addEventListener('touchcancel', (e) => {
-            e.preventDefault();
-            keys['arrowup'] = false;
-            keys['arrowdown'] = false;
-            keys['arrowleft'] = false;
-            keys['arrowright'] = false;
-        });
+    btnRight.addEventListener('touchcancel', (e) => {
+        e.preventDefault();
+        keys['arrowright'] = false;
     });
 }
 
 // Initialize the game
 function init() {
     // Detect mobile device
-    isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
-                || (window.innerWidth <= 768);
+    isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS|FxiOS/i.test(navigator.userAgent) 
+                || (window.innerWidth <= mobileBreakpoint);
     
     // Show mobile controls if on mobile
     if (isMobile) {

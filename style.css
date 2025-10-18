@@ -118,7 +118,7 @@ body {
     cursor: pointer;
     user-select: none;
     -webkit-user-select: none;
-    touch-action: manipulation;
+    touch-action: none;
     transition: all 0.1s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
