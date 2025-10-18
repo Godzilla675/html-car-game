@@ -1,12 +1,13 @@
 {
   "name": "html-car-game",
   "version": "1.0.0",
-  "description": "",
+  "description": "3D Racing Game built with Three.js featuring player controls, AI opponents, collision detection, and lap-based racing",
   "main": "game.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "python3 -m http.server 8000",
+    "test": "echo \"No tests specified\" && exit 0"
   },
-  "keywords": [],
+  "keywords": ["racing", "game", "3d", "threejs", "webgl"],
   "author": "",
   "license": "ISC",
   "dependencies": {
