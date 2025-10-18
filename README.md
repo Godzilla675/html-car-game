@@ -5,10 +5,19 @@ A fully-featured 3D racing game built with HTML, CSS, JavaScript, and Three.js.
 ## Features
 
 ### ✅ Player Car Controls
+
+#### Desktop Controls
 - **Acceleration**: W or Arrow Up
 - **Deceleration/Reverse**: S or Arrow Down
 - **Turn Left**: A or Arrow Left
 - **Turn Right**: D or Arrow Right
+
+#### Mobile Controls
+- **On-screen touch buttons** automatically appear on mobile devices
+- **Forward button (▲)**: Accelerate
+- **Brake button (▼)**: Brake/Reverse
+- **Left button (◀)**: Turn Left
+- **Right button (▶)**: Turn Right
 
 ### ✅ Racing Track
 - Oval looping course with realistic physics
@@ -38,9 +47,19 @@ A fully-featured 3D racing game built with HTML, CSS, JavaScript, and Three.js.
 
 ## How to Play
 
+### Desktop
 1. Open `index.html` in a modern web browser
 2. Wait for the countdown to complete (3, 2, 1, Go!)
 3. Use WASD or Arrow Keys to control your red car
+4. Complete 3 laps before the AI opponents to win!
+
+### Mobile
+1. Open `index.html` on a mobile device or tablet
+2. Wait for the countdown to complete (3, 2, 1, Go!)
+3. Use the on-screen touch buttons to control your red car:
+   - Forward (▲) to accelerate
+   - Left (◀) and Right (▶) to steer
+   - Brake (▼) to slow down or reverse
 4. Complete 3 laps before the AI opponents to win!
 
 ## Technical Details
@@ -74,12 +93,23 @@ python3 -m http.server 8000
 
 ## Controls Reference
 
+### Desktop
 | Key | Action |
 |-----|--------|
 | W / ↑ | Accelerate |
 | S / ↓ | Brake/Reverse |
 | A / ← | Turn Left |
 | D / → | Turn Right |
+
+### Mobile
+| Button | Action |
+|--------|--------|
+| ▲ | Accelerate |
+| ▼ | Brake/Reverse |
+| ◀ | Turn Left |
+| ▶ | Turn Right |
+
+*Mobile controls automatically appear when accessing the game from a mobile device or small screen.*
 
 ## Game Mechanics
 

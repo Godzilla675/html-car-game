@@ -84,3 +84,88 @@ body {
 #race-result.show {
     display: block;
 }
+
+/* Mobile Controls */
+#mobile-controls {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: auto;
+    z-index: 200;
+}
+
+#mobile-controls.show {
+    display: flex;
+}
+
+.control-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.control-btn {
+    width: 70px;
+    height: 70px;
+    font-size: 32px;
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    transition: all 0.1s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.control-btn:active {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: #00ff00;
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.control-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #mobile-controls {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .control-btn {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+    }
+    
+    #hud {
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+    
+    #speed, #lap {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    #mobile-controls {
+        bottom: 10px;
+        right: 10px;
+    }
+    
+    .control-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+}
