@@ -14,14 +14,90 @@ let raceStarted = false;
 let raceFinished = false;
 let checkpoints = [];
 let lastCheckpoint = -1;
+let isMobile = false;
 
 // Track configuration
 const trackWidth = 40;
 const trackLength = 200;
 const wallHeight = 5;
+const mobileBreakpoint = 768; // Viewport width threshold for mobile detection
+
+// Mobile controls setup
+function setupMobileControls() {
+    const btnForward = document.getElementById('btn-forward');
+    const btnBrake = document.getElementById('btn-brake');
+    const btnLeft = document.getElementById('btn-left');
+    const btnRight = document.getElementById('btn-right');
+
+    // Forward button
+    btnForward.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        keys['arrowup'] = true;
+    });
+    btnForward.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        keys['arrowup'] = false;
+    });
+    btnForward.addEventListener('touchcancel', (e) => {
+        e.preventDefault();
+        keys['arrowup'] = false;
+    });
+
+    // Brake button
+    btnBrake.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        keys['arrowdown'] = true;
+    });
+    btnBrake.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        keys['arrowdown'] = false;
+    });
+    btnBrake.addEventListener('touchcancel', (e) => {
+        e.preventDefault();
+        keys['arrowdown'] = false;
+    });
+
+    // Left button
+    btnLeft.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        keys['arrowleft'] = true;
+    });
+    btnLeft.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        keys['arrowleft'] = false;
+    });
+    btnLeft.addEventListener('touchcancel', (e) => {
+        e.preventDefault();
+        keys['arrowleft'] = false;
+    });
+
+    // Right button
+    btnRight.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        keys['arrowright'] = true;
+    });
+    btnRight.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        keys['arrowright'] = false;
+    });
+    btnRight.addEventListener('touchcancel', (e) => {
+        e.preventDefault();
+        keys['arrowright'] = false;
+    });
+}
 
 // Initialize the game
 function init() {
+    // Detect mobile device
+    isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS|FxiOS/i.test(navigator.userAgent) 
+                || (window.innerWidth <= mobileBreakpoint);
+    
+    // Show mobile controls if on mobile
+    if (isMobile) {
+        document.getElementById('mobile-controls').classList.add('show');
+        setupMobileControls();
+    }
+    
     // Create scene
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0x87CEEB);
